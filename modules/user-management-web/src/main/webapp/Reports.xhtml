@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	template="#{theme.userTemplate}">
+
+	<ui:define name="center">
+		<p:dialog header="Reports" widgetVar="dlg" maximizable="true" minimizable="true" visible="true" width="600" height="450" styleClass="MenueClass">
+				
+			<h:form> 
+				<p:menubar>
+                        <p:menuitem value="#{messages['menu.new']}" url="#" icon="../image/add_entry_16.ico" helpText="CTRL+Z"></p:menuitem>
+                        <p:menuitem value="#{messages['menu.edit']}" url="#" helpText="CTRL+Z"></p:menuitem>
+						<p:menuitem value="#{messages['menu.delete']}" url="#" helpText="CTRL+Z"></p:menuitem>
+						<p:menuitem value="#{messages['menu.save']}" url="#" helpText="CTRL+Z"></p:menuitem>
+                        <p:menuitem value="#{messages['menu.return']}" url="#" helpText="CTRL+Z"></p:menuitem>
+            	</p:menubar>
+			</h:form> 
+						
+			<h:form>  
+    			<p:dataTable var="car" value="#" paginator="true" rows="10"  
+                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+                    <f:facet name="header">  
+			            <p:outputPanel>  
+			                <h:outputText value="Search all fields:"  />  
+			                <p:inputText id="globalFilter" style="width:150px" />  
+			            </p:outputPanel>  
+			        </f:facet>  
+        			<p:column>  
+            			<f:facet name="header">  
+                    		Name
+            			</f:facet>  
+            			<h:outputText value="#" />  
+        			</p:column>  
+        			<p:column>  
+            			<f:facet name="header">  
+                    		Code
+            			</f:facet>  
+           			 	<h:outputText value="#" />  
+        			</p:column>          			         			
+    			</p:dataTable>  
+			</h:form>  			
+			
+			<p:tabView>  
+			    <p:tab title="Main Info">
+				    <h:panelGrid columns="2" cellpadding="10"> 
+				    	<h:panelGrid columns="2">
+							<h:outputText value="Name : " />
+							<p:inputText />
+							
+							<h:outputText value="Code : " />
+							<p:inputTextarea style="width:400px;height:100px; overflow-y: scroll;" />	
+						</h:panelGrid>											  																											
+					 </h:panelGrid> 
+				</p:tab>  
+			  
+			    <p:tab title="Filter">
+					<p:menubar>
+						<p:menuitem value="#{messages['menu.add']}" url="#"
+							helpText="CTRL+Z"></p:menuitem>
+						<p:menuitem value="#{messages['menu.delete']}" url="#"
+							helpText="CTRL+Z"></p:menuitem>
+					</p:menubar>
+					<h:form>
+						<p:dataTable var="car" value="#">
+							<p:column>
+								<f:facet name="header">  
+							    	Name  
+							    </f:facet>
+								<h:outputText value="#" />
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header">  
+							    	Code  
+							    </f:facet>
+								<h:outputText value="#" />
+							</p:column>
+						</p:dataTable>
+					</h:form>
+				</p:tab>  														  	  
+			</p:tabView>  			
+					  	
+		</p:dialog> 
+		<!-- <p:draggable for="pnl" containment="parent" /> -->
+		
+	</ui:define>
+</ui:composition>

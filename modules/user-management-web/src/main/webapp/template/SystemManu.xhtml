@@ -1,0 +1,109 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:s="http://jboss.com/products/seam/taglib"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui">
+	
+
+	<h:form>
+			<p:menubar>  
+       <!--  <p:submenu label="Function" >  
+            <p:submenu label="New" >  
+                <p:menuitem value="Project" url="#" helpText="CTRL+N" />  
+                <p:menuitem value="Other" url="#" helpText="CTRL+O"/>  
+            </p:submenu>  
+            <p:menuitem value="Open" url="#" />  
+            <p:separator />  
+            <p:menuitem value="Quit" url="#" />  
+        </p:submenu>   -->
+        
+        <p:menuitem value="#{messages['menu.function']}" />
+        
+        <p:menuitem value="#{messages['menu.users']}" url="/Users.xhtml" />
+        
+        <p:menuitem value="#{messages['menu.users_group']}" url="/Users_Group.xhtml" />
+        
+        <!-- <p:menuitem value="#{messages['menu.users_groups']}" /> -->
+        
+        <!-- <p:menuitem value="#{messages['menu.operation_groups']}" /> -->
+        
+        <!-- <p:menuitem value="#{messages['menu.add_filter']}" /> -->
+        
+        <p:menuitem value="#{messages['menu.add_report']}" url="/Reports.xhtml" />
+               
+       <!--  <p:menuitem value="#{messages['menu.reports_authorized_users']}" /> -->
+        
+        <p:menuitem value="#{messages['menu.quit']}" />
+  
+        <!-- <p:submenu label="Users" >  
+            <p:menuitem value="Undo" url="#"  helpText="CTRL+Z"></p:menuitem>  
+            <p:menuitem value="Redo" url="#"  helpText="CTRL+Y"></p:menuitem>  
+        </p:submenu>   -->
+  
+        <!-- <p:submenu label="User Groups" >  
+            <p:menuitem value="Contents" url="#" />  
+            <p:submenu label="Search" >  
+                <p:submenu label="Text">  
+                    <p:menuitem value="Workspace" url="#" />  
+                </p:submenu>  
+                <p:menuitem value="File" url="#" />  
+            </p:submenu>  
+        </p:submenu>   -->
+  
+        <!-- <p:submenu label="Users Groups" >  
+            <p:submenu label="Ajax" >  
+                <p:menuitem value="Save" />  
+                <p:menuitem value="Update"  />  
+            </p:submenu>  
+            <p:submenu label="Non-Ajax" >  
+                <p:menuitem value="Delete"  />  
+            </p:submenu>  
+        </p:submenu>   -->
+  
+        <!-- <p:menuitem value="Operation Groups" /> -->  
+    </p:menubar>  
+	 
+	 
+		<!-- <p:toolbar>
+			 <p:toolbarGroup align="#{appearance.left}">
+				<p:commandButton value="#{messages['shanli.acceptor']}" action="#{redirectManagment.systemRedirect(1)}"
+							oncomplete="handleComplete(xhr, status, args)">
+					<f:param name="action" value="1" />
+				</p:commandButton>
+				<p:commandButton value="#{messages['shanli.holder']}" action="#{redirectManagment.systemRedirect(2)}"
+							oncomplete="handleComplete(xhr, status, args)">
+					<f:param name="action" value="2" />
+				</p:commandButton>
+				<p:commandButton value="#{messages['payment.acceptor']}" action="#{redirectManagment.systemRedirect(3)}"
+							oncomplete="handleComplete(xhr, status, args)">
+					<f:param name="action" value="3" />
+				</p:commandButton>
+				<p:commandButton value="#{messages['booking.system']}" action="#{redirectManagment.systemRedirect(4)}"
+							oncomplete="handleComplete(xhr, status, args)">
+					<f:param name="action" value="4" />
+				</p:commandButton>
+				<p:commandButton value="#{messages['reporting']}" action="#{redirectManagment.systemRedirect(5)}"
+							oncomplete="handleComplete(xhr, status, args)">
+					<f:param name="action" value="5" />
+				</p:commandButton> 
+			</p:toolbarGroup>
+
+			<p:divider />
+		 <p:toolbarGroup align="#{appearance.right}">
+				<h:outputText value="#{messages['welcome']}"
+					rendered="#{identity.loggedIn}" />
+
+				<p:menuButton>
+					<p:menuitem value="#{messages['home']}" url="/home.xhtml" />
+					<p:menuitem value="#{messages['logout']}"
+						action="#{identity.logout}" rendered="#{identity.loggedIn}"
+						ajax="false" />
+				</p:menuButton>
+			</p:toolbarGroup> 
+		</p:toolbar> -->
+
+	</h:form>
+</ui:composition>

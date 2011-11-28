@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	template="#{theme.userTemplate}">
+
+	<ui:define name="center">
+		<p:dialog id="pnl" header="Users" widgetVar="dlg" maximizable="true" minimizable="true" visible="true" width="600" height="400" styleClass="uidialogp">
+			<h:form> 
+				<p:menubar>
+                        <p:menuitem value="#{messages['menu.new']}" url="#" helpText="CTRL+Z"></p:menuitem>
+                        <p:menuitem value="#{messages['menu.edit']}" url="#" helpText="CTRL+Z"></p:menuitem>
+						<p:menuitem value="#{messages['menu.delete']}" url="#" helpText="CTRL+Z"></p:menuitem>
+						<p:menuitem value="#{messages['menu.save']}" url="#" helpText="CTRL+Z"></p:menuitem>
+                        <p:menuitem value="#{messages['menu.return']}" url="#" helpText="CTRL+Z"></p:menuitem>
+            	</p:menubar>
+			</h:form> 
+						
+			<h:form>  
+    			<p:dataTable var="user" value="#{userManagementAction.users}">  
+        			<p:column>  
+            			<f:facet name="header">  
+                    		Code  
+            			</f:facet>  
+            			<h:outputText value="#{user.id}" />  
+        			</p:column>  
+  
+        			<p:column>  
+            			<f:facet name="header">  
+                    		Name  
+            			</f:facet>  
+           			 	<h:outputText value="#{user.name}"  />  
+        			</p:column>  
+  
+        			<p:column>  
+           	 			<f:facet name="header">  
+                    		Full Name  
+            			</f:facet>  
+            			<h:outputText value="#{user.fullName}"/>  
+        			</p:column>  
+  
+        			<p:column>  
+            			<f:facet name="header">  
+                   			Status  
+            			</f:facet>  
+            			<h:outputText value="#{user.status}"/>  
+        			</p:column>  
+    			</p:dataTable>  
+			</h:form>  
+			
+			<p:tabView >  
+			    <p:tab title="Main Info">  
+			        <h:panelGrid columns="2" cellpadding="10">  		            
+			              
+					        <h:panelGrid columns="4">  
+					        	 <h:outputText value="User Code : " />
+					        	 <p:inputText />
+					        	 
+					        	 <h:outputText value="User Name : " />
+					        	 <p:inputText />
+					        	 
+					        	 <h:outputText value="Full Name : " />
+					        	 <p:inputText />
+					        	 					        	 
+					            <h:outputText value="Password : " />  
+					            <p:password value="#{passwordBean.password1}" feedback="false" />
+					            
+					            <h:outputText value="Status : " /> 
+					            <p:themeSwitcher style="width:150px">  
+						            <f:selectItem itemLabel="Choose Theme" itemValue="" />  
+						            <f:selectItems value="Insert" />  
+						        </p:themeSwitcher>					            
+					  					            
+					        </h:panelGrid>  
+					     
+			        </h:panelGrid>  
+			    </p:tab>  
+			  
+			    <p:tab title="Access">  			        			        			        	
+						<p:menubar style="padding: 0em ; width: 100%;">
+						    <p:menuitem value="#{messages['menu.add']}" url="#" helpText="CTRL+Z"></p:menuitem>
+						    <p:menuitem value="#{messages['menu.delete']}" url="#" helpText="CTRL+Z"></p:menuitem>									
+						</p:menubar>										    						  						    						  						     						  						      												     
+						<h:form>  
+							<p:dataTable var="car" value="#">  
+						        <p:column>  
+						            <f:facet name="header">  
+						             Code  
+						            </f:facet>  
+						            <h:outputText value="#" />  
+						        </p:column>  
+						  
+						        <p:column>  
+						            <f:facet name="header">  
+						            	Name  
+						            </f:facet>  
+						           	<h:outputText value="#" />  
+						        </p:column>  		        			
+						  			        			 
+						    </p:dataTable>  
+						</h:form>  				      						        			        	         			    				    										  												  			      
+			    </p:tab> 
+			    
+			    <p:tab title="Reports Authorized Users">  			        			        			        	
+						<p:menubar>
+						    <p:menuitem value="#{messages['menu.add']}" url="#" helpText="CTRL+Z"></p:menuitem>
+						    <p:menuitem value="#{messages['menu.delete']}" url="#" helpText="CTRL+Z"></p:menuitem>									
+						</p:menubar>										    						  						    						  						     						  						      												     
+						<h:form>  
+							<p:dataTable var="car" value="#">  						        						  
+						        <p:column>  
+						            <f:facet name="header">  
+						            	Name  
+						            </f:facet>  
+						           	<h:outputText value="#" />  
+						        </p:column>  		        			
+						  			        			 
+						    </p:dataTable>  
+						</h:form>  				      						        			        	         			    				    										  												  			      
+			    </p:tab>
+			     			  	  
+			</p:tabView>  
+		  	
+		</p:dialog> 
+		<p:draggable for="pnl" containment="parent" />
+		
+	</ui:define>
+</ui:composition>
